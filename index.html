@@ -26,7 +26,7 @@
 			<!-- START controls box -->
 			<div class="controls-box">
 
-				<div class="controls">
+				<div class="controls" id='session'>
 					<p class='controls-label'>Session Length</p>
 					<div class='controls-info'>
 						<span class='controls-down'>-</span>
@@ -35,7 +35,7 @@
 					</div>
 				</div>
 
-				<div class="controls">
+				<div class="controls" id='break'>
 					<p class='controls-label'>Break Length</p>
 					<div class='controls-info'>
 						<span class='controls-down'>-</span>
@@ -56,7 +56,8 @@
 
 			<div class="timer-box">
 				<h2 class='current-mode-label'>Session</h2>
-				<h3>20:00</h3>
+				<h3 class='current-value'>25:00</h3>
+				<button id='startStop'>Go!</button>
 			</div>
 
 		</section>
@@ -71,6 +72,9 @@
 
 	</div>
 	<!-- END main site wrapper -->
+
+	<!-- import jQuery -->
+	<script src="https://code.jquery.com/jquery-3.0.0.min.js" integrity="sha256-JmvOoLtYsmqlsWxa7mDSLMwa6dZ9rrIdtrrVYRnDRH0=" crossorigin="anonymous"></script>
 
 	<!-- JS -->
 	<script src='app/app.js'></script>
