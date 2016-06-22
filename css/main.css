@@ -2,6 +2,58 @@
   font-family: 'Exo', sans-serif;
 }
 body {
-  background-image: url("../img/background.jpg");
+  background: url("../img/background.jpg");
   background-repeat: repeat;
+  margin: 0;
+}
+#wrapper {
+  height: 100vh;
+  background: #fff;
+  width: 800px;
+  max-width: 90%;
+  margin: 0 auto;
+}
+header.site-title {
+  text-align: center;
+  font-size: 2rem;
+  color: #bbb;
+}
+header.site-title h1 {
+  margin: 0;
+  padding-top: 1rem;
+}
+section.controls-container {
+  padding: 0.3rem 1.2rem;
+}
+section.controls-container .controls-box {
+  text-align: center;
+}
+section.controls-container .controls-box .controls {
+  text-align: center;
+  display: inline-block;
+  width: 20%;
+  padding: 1rem;
+  margin: 0.5rem 0.4rem;
+}
+section.controls-container .controls-box .controls .controls-info .controls-up,
+section.controls-container .controls-box .controls .controls-info .controls-down {
+  cursor: pointer;
+  font-size: 1.2rem;
+}
+section.controls-container .controls-box .controls .controls-info .controls-value {
+  font-size: 1.5rem;
+  margin: 0 0.5rem;
+}
+section.main .timer-box {
+  margin: 0 auto;
+  text-align: center;
+}
+footer {
+  text-align: center;
+  position: fixed;
+  bottom: 10px;
+  left: 50%;
+  -webkit-transform: translateX(-50%);
+      -ms-transform: translateX(-50%);
+          transform: translateX(-50%);
 }

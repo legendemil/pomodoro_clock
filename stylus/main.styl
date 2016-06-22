@@ -3,5 +3,59 @@
 	font-family: 'Exo', sans-serif;
 
 body
-	background-image url('../img/background.jpg')
+	background url('../img/background.jpg')
 	background-repeat repeat
+	margin 0 
+	
+
+#wrapper
+	height 100vh
+	background #fff
+	width 800px
+	max-width 90%
+	margin 0 auto
+	
+// ------------- Header Styles ----------------//
+header.site-title
+	text-align center
+	font-size 2rem
+	color #bbb
+	h1  
+		margin 0
+		padding-top 1rem
+
+// ------------- Controls Styles ----------------//
+section.controls-container
+	padding .3rem 1.2rem
+	.controls-box
+		text-align center
+		.controls
+			text-align center
+			display inline-block
+			width 20%
+			padding 1rem
+			margin .5rem .4rem
+			.controls-info
+				.controls-up
+				.controls-down
+					cursor pointer
+					font-size 1.2rem
+				.controls-value
+					font-size 1.5rem
+					margin 0 .5rem
+
+			
+// ------------- Main Styles ----------------//
+section.main 
+	.timer-box
+		margin 0 auto
+		text-align center
+		
+
+// ------------- footer Styles ----------------//
+footer
+	text-align center
+	position fixed
+	bottom 10px
+	left 50%
+	transform translateX(-50%)
