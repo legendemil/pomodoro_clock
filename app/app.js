@@ -17,7 +17,8 @@ var pomodoro = (function() {
 			currentValue: null,
 			startStopBtn: null
 
-		};
+		},
+		alarmSound = null;
 	
 	// fill zeros if needed
 	function pad(val) {
@@ -48,6 +49,7 @@ var pomodoro = (function() {
 			isSession = !isSession;	
 			currentTime = sessionLength * 60;
 			timerBox.label.text('Session');
+			alarmSound.play();
 		}
 	}
 
@@ -63,8 +65,8 @@ var pomodoro = (function() {
 		if(currentTime < 0) {
 			isSession = !isSession;
 			currentBreak = breakLength * 60;
-			console.log(timerBox.label)
 			timerBox.label.text('Break');
+			alarmSound.play();
 		}
 
 	}
@@ -91,6 +93,14 @@ var pomodoro = (function() {
 				setTimeout(countdown, 1000);
 			}
 		},0);
+
+	}
+
+	function startAlarm() {
+		
+	}
+
+	function stopAlarm() {
 
 	}
 
@@ -158,6 +168,9 @@ var pomodoro = (function() {
 		timerBox.label = $(timerBox.box).find('.current-mode-label');
 		timerBox.currentValue = $(timerBox.box).find('.current-value');
 		timerBox.startStopBtn = $(timerBox.box).find('#startStop');
+
+		// sound
+		alarmSound = document.querySelector('#alarm-sound');
 	}
 
 	function bindEvents() {
