@@ -93,3 +93,11 @@ footer {
       -ms-transform: translateX(-50%);
           transform: translateX(-50%);
 }
+footer a {
+  display: inline-block;
+  text-decoration: none;
+  color: #bbb;
+  width: 150px;
+  margin-top: 0.8rem;
+  font-size: 0.8rem;
+}
