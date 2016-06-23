@@ -26,6 +26,12 @@ var pomodoro = (function() {
 	
 	// update the timerBox.currentValue
 	function updateView(min, sec) {
+		if(min === undefined && sec === undefined) {
+			timerBox.currentValue.text(pad(sessionLength) + ':00');
+			console.log(pad(sessionLength) + ':00')
+			return;
+		}
+
 		timerBox.currentValue.text(min + ':' + sec);
 	}
 
@@ -71,6 +77,10 @@ var pomodoro = (function() {
 		labelTextBtn = isRun ? 'Stop!' : 'Go!';
 		timerBox.startStopBtn.text(labelTextBtn);
 		
+		if(isRun)
+			disableTimerControls();
+		else
+			enableTimerControls();
 
 		setTimeout(function countdown() {
 			if(isRun) {
@@ -80,7 +90,7 @@ var pomodoro = (function() {
 					startSession();
 				setTimeout(countdown, 1000);
 			}
-		},1000);
+		},0);
 
 	}
 
@@ -92,6 +102,7 @@ var pomodoro = (function() {
 		sessionLength++;
 		currentTime = sessionLength * 60;
 		sessionInfo.value.text(sessionLength);
+		updateView();
 	}
 
 	function handleDecreaseSession() {	
@@ -101,6 +112,7 @@ var pomodoro = (function() {
 		sessionLength--;
 		currentTime = sessionLength * 60;
 		sessionInfo.value.text(sessionLength);
+		updateView();
 	}
 
 	function handleIncreaseBreak() {
@@ -115,6 +127,22 @@ var pomodoro = (function() {
 				breakLength--;
 		currentBreak = breakLength * 60;
 		breakInfo.value.text(breakLength);
+	}
+
+	function enableTimerControls() {
+		$(sessionInfo.box).find('.controls-up').on('click', handleIncreaseSession);
+		$(sessionInfo.box).find('.controls-down').on('click', handleDecreaseSession);
+
+		$(breakInfo.box).find('.controls-up').on('click', handleIncreaseBreak);
+		$(breakInfo.box).find('.controls-down').on('click', handleDecreaseBreak);
+	}
+
+	function disableTimerControls() {
+		$(sessionInfo.box).find('.controls-up').off('click', handleIncreaseSession);
+		$(sessionInfo.box).find('.controls-down').off('click', handleDecreaseSession);
+
+		$(breakInfo.box).find('.controls-up').off('click', handleIncreaseBreak);
+		$(breakInfo.box).find('.controls-down').off('click', handleDecreaseBreak);
 	}
 	
 	// get DOM elements
@@ -134,13 +162,7 @@ var pomodoro = (function() {
 
 	function bindEvents() {
 		timerBox.startStopBtn.on('click', handleStartTimer);
-
-		$(sessionInfo.box).find('.controls-up').on('click', handleIncreaseSession);
-		$(sessionInfo.box).find('.controls-down').on('click', handleDecreaseSession);
-
-		$(breakInfo.box).find('.controls-up').on('click', handleIncreaseBreak);
-		$(breakInfo.box).find('.controls-down').on('click', handleDecreaseBreak);
-
+		enableTimerControls();
 	}
 
 	// starts an app

@@ -57,6 +57,13 @@ section.controls-container .controls-box .controls .controls-info button {
   width: 20px;
   height: 20px;
   cursor: pointer;
+  transition-duration: 0.3s;
+}
+section.controls-container .controls-box .controls .controls-info button:active {
+  box-shadow: 1px 1px 5px -3px #000;
+  -webkit-transform: translateY(5px);
+      -ms-transform: translateY(5px);
+          transform: translateY(5px);
 }
 section.controls-container .controls-box .controls .controls-info .controls-value {
   font-size: 1.5rem;
