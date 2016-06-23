@@ -1,7 +1,21 @@
+// ------------- Variables -----------------//
+control-btn-size = 20px
+
+make-white()
+	outline none
+	border none
+	box-shadow 3px 3px 5px -3px black
+	cursor pointer
+	background none
+	
+
 // ------------- Global Styles ----------------//
 *
 	font-family: 'Exo', sans-serif;
 
+::selection
+	background #bbb
+	color white
 body
 	background url('../img/background.jpg')
 	background-repeat repeat
@@ -36,10 +50,15 @@ section.controls-container
 			padding 1rem
 			margin .5rem .4rem
 			.controls-info
-				.controls-up
-				.controls-down
+				button
+					make-white()
+					transform translateY(-30%)
+					text-align center
+					border-radius 100%
+					width control-btn-size
+					height control-btn-size
 					cursor pointer
-					font-size 1.2rem
+					
 				.controls-value
 					font-size 1.5rem
 					margin 0 .5rem
@@ -50,7 +69,12 @@ section.main
 	.timer-box
 		margin 0 auto
 		text-align center
-		
+		button#startStop
+			make-white()
+			width 100px
+			padding .4rem
+			font-size 1.3rem
+			font-weight 100
 
 // ------------- footer Styles ----------------//
 footer

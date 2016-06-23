@@ -9,8 +9,8 @@ var pomodoro = (function() {
 		isRun = false,
 		isSession = true,
 		controlsBox,
-		sessionInfo,
-		breakInfo,
+		sessionInfo = { },
+		breakInfo = {},
 		timerBox = {
 			box: null,
 			label: '',
@@ -87,12 +87,45 @@ var pomodoro = (function() {
 	function handleStartTimer(ev) {
 		startTimer();
 	}
+
+	function handleIncreaseSession() {
+		sessionLength++;
+		currentTime = sessionLength * 60;
+		sessionInfo.value.text(sessionLength);
+	}
+
+	function handleDecreaseSession() {	
+		if(sessionLength === 0)
+			return;
+
+		sessionLength--;
+		currentTime = sessionLength * 60;
+		sessionInfo.value.text(sessionLength);
+	}
+
+	function handleIncreaseBreak() {
+		breakLength++;
+		currentBreak = breakLength * 60;
+		breakInfo.value.text(breakLength);
+	}
+
+	function handleDecreaseBreak() {
+		if(breakLength === 0)
+			return;
+				breakLength--;
+		currentBreak = breakLength * 60;
+		breakInfo.value.text(breakLength);
+	}
 	
 	// get DOM elements
 	function cacheDOM() {
 		controlsBox = $('.controls-box');
-		sessionInfo = $(controlsBox).find('#session');
-		breakInfo = $(controlsBox).find('#break');
+		// controls
+		sessionInfo.box = $(controlsBox).find('#session');
+		sessionInfo.value = $(sessionInfo.box).find('.controls-value');
+		breakInfo.box = $(controlsBox).find('#break');
+		breakInfo.value = $(breakInfo.box).find('.controls-value');
+		// timer
 		timerBox.box = $('.timer-box');
 		timerBox.label = $(timerBox.box).find('.current-mode-label');
 		timerBox.currentValue = $(timerBox.box).find('.current-value');
@@ -101,19 +134,19 @@ var pomodoro = (function() {
 
 	function bindEvents() {
 		timerBox.startStopBtn.on('click', handleStartTimer);
-	}
-	
-	// start sessions 
-	function initSession() {
-		sessionStorage.setItem('sessionLength', 25 * 60);
-		sessionStorage.setItem('breakLength', 5 * 60);
+
+		$(sessionInfo.box).find('.controls-up').on('click', handleIncreaseSession);
+		$(sessionInfo.box).find('.controls-down').on('click', handleDecreaseSession);
+
+		$(breakInfo.box).find('.controls-up').on('click', handleIncreaseBreak);
+		$(breakInfo.box).find('.controls-down').on('click', handleDecreaseBreak);
+
 	}
 
 	// starts an app
 	function init() {
 		cacheDOM();
 		bindEvents();
-		initSession();
 	}
 	
 	init();

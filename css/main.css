@@ -1,6 +1,14 @@
 * {
   font-family: 'Exo', sans-serif;
 }
+::-moz-selection {
+  background: #bbb;
+  color: #fff;
+}
+::selection {
+  background: #bbb;
+  color: #fff;
+}
 body {
   background: url("../img/background.jpg");
   background-repeat: repeat;
@@ -35,10 +43,20 @@ section.controls-container .controls-box .controls {
   padding: 1rem;
   margin: 0.5rem 0.4rem;
 }
-section.controls-container .controls-box .controls .controls-info .controls-up,
-section.controls-container .controls-box .controls .controls-info .controls-down {
+section.controls-container .controls-box .controls .controls-info button {
+  outline: none;
+  border: none;
+  box-shadow: 3px 3px 5px -3px #000;
   cursor: pointer;
-  font-size: 1.2rem;
+  background: none;
+  -webkit-transform: translateY(-30%);
+      -ms-transform: translateY(-30%);
+          transform: translateY(-30%);
+  text-align: center;
+  border-radius: 100%;
+  width: 20px;
+  height: 20px;
+  cursor: pointer;
 }
 section.controls-container .controls-box .controls .controls-info .controls-value {
   font-size: 1.5rem;
@@ -47,6 +65,17 @@ section.controls-container .controls-box .controls .controls-info .controls-valu
 section.main .timer-box {
   margin: 0 auto;
   text-align: center;
+}
+section.main .timer-box button#startStop {
+  outline: none;
+  border: none;
+  box-shadow: 3px 3px 5px -3px #000;
+  cursor: pointer;
+  background: none;
+  width: 100px;
+  padding: 0.4rem;
+  font-size: 1.3rem;
+  font-weight: 100;
 }
 footer {
   text-align: center;
