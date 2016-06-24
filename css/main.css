@@ -85,13 +85,8 @@ section.main .timer-box button#startStop {
   font-weight: 100;
 }
 footer {
+  margin-top: 100px;
   text-align: center;
-  position: fixed;
-  bottom: 10px;
-  left: 50%;
-  -webkit-transform: translateX(-50%);
-      -ms-transform: translateX(-50%);
-          transform: translateX(-50%);
 }
 footer a {
   display: inline-block;
